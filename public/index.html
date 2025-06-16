@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netlify MongoDB App</title>
+</head>
+<body>
+    <h1>Users from MongoDB</h1>
+    <button onclick="getUsers()">Load Users</button>
+    <div id="users"></div>
+
+    <script>
+        async function getUsers() {
+            try {
+                const response = await fetch('/.netlify/functions/get-users');
+                const users = await response.json();
+                document.getElementById('users').innerHTML = JSON.stringify(users, null, 2);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
