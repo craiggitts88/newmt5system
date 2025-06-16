@@ -1,5 +1,5 @@
-// Simple license checker
-const licenses = new Map(); // In production, use a real database
+// Import users data (in production, use shared database)
+const users = new Map();
 
 exports.handler = async (event, context) => {
   // Handle CORS
@@ -18,9 +18,22 @@ exports.handler = async (event, context) => {
   try {
     const { mt5Account } = JSON.parse(event.body);
     
-    // For demo - these accounts are "licensed"
-    const demoLicenses = ['12345', '67890', '11111'];
-    const isLicensed = demoLicenses.includes(mt5Account);
+    // Check all users for this account number
+    let isLicensed = false;
+    let userEmail = null;
+    
+    for (const [email, user] of users.entries()) {
+      if (user.accounts && user.accounts.some(acc => 
+        acc.accountNumber === mt5Account && acc.status === 'active'
+      )) {
+        isLicensed = true;
+        userEmail = email;
+        break;
+      }
+    }
+    
+    // Log the check (in production, save to database)
+    console.log(`License check: ${mt5Account} - ${isLicensed ? 'VALID' : 'INVALID'} - ${new Date().toISOString()}`);
     
     return {
       statusCode: 200,
@@ -31,7 +44,8 @@ exports.handler = async (event, context) => {
       body: JSON.stringify({ 
         licensed: isLicensed,
         account: mt5Account,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
+        ...(isLicensed && { user: userEmail })
       })
     };
   } catch (error) {
@@ -39,9 +53,3 @@ exports.handler = async (event, context) => {
       statusCode: 400,
       headers: {
         'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ error: 'Invalid request' })
-    };
-  }
-};
