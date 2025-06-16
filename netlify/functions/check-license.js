@@ -53,3 +53,9 @@ exports.handler = async (event, context) => {
       statusCode: 400,
       headers: {
         'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ error: 'Invalid request' })
+    };
+  }
+};
