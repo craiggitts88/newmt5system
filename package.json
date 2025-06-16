@@ -1,0 +1,14 @@
+{
+  "name": "mt5-license-system",
+  "version": "1.0.0",
+  "description": "MT5 License Management System",
+  "main": "index.html",
+  "dependencies": {
+    "mongodb": "^6.0.0"
+  },
+  "scripts": {
+    "build": "echo 'No build step required'"
+  },
+  "author": "Your Name",
+  "license": "MIT"
+}
