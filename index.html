@@ -3,212 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MT5 EA License Dashboard</title>
+    <title>MT5 License Dashboard</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f5f7fa; }
-        
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-        
-        .logo { font-size: 1.5rem; font-weight: bold; }
-        
-        .nav-buttons button {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 0.5rem 1rem;
-            margin-left: 0.5rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .nav-buttons button:hover { background: rgba(255,255,255,0.3); }
-        
-        .container {
-            max-width: 1200px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-        }
-        
-        .card {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .auth-form {
-            max-width: 400px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 2px solid #e1e5e9;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .btn {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 0.75rem 2rem;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.2s;
-            width: 100%;
-        }
-        
-        .btn:hover { transform: translateY(-2px); }
-        
-        .btn-secondary {
-            background: #6c757d;
-            margin-top: 1rem;
-        }
-        
-        .btn-danger {
-            background: #dc3545;
-            padding: 0.5rem 1rem;
-            width: auto;
-        }
-        
-        .alert {
-            padding: 1rem;
-            border-radius: 5px;
-            margin-bottom: 1rem;
-        }
-        
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
-        
-        .account-list {
-            display: grid;
-            gap: 1rem;
-        }
-        
-        .account-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 5px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .account-info h4 {
-            color: #333;
-            margin-bottom: 0.25rem;
-        }
-        
-        .account-info p {
-            color: #666;
-            font-size: 0.9rem;
-        }
-        
-        .status-badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .status-active {
-            background: #d4edda;
-            color: #155724;
-        }
-        
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); margin-bottom: 20px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; color: #333; }
+        .form-group input { width: 100%; padding: 12px; border: 2px solid #ddd; border-radius: 8px; font-size: 16px; }
+        .form-group input:focus { border-color: #667eea; outline: none; }
+        .btn { background: #667eea; color: white; border: none; padding: 12px 25px; border-radius: 8px; cursor: pointer; font-size: 16px; font-weight: bold; }
+        .btn:hover { background: #5a67d8; }
+        .btn-secondary { background: #6c757d; }
+        .btn-secondary:hover { background: #5a6268; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #c82333; }
+        .alert { padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .alert-success { background: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        .alert-error { background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        .alert-info { background: #d1ecf1; color: #0c5460; border: 1px solid #bee5eb; }
+        .tabs { display: flex; margin-bottom: 20px; }
+        .tab { padding: 10px 20px; background: #f8f9fa; border: 1px solid #ddd; cursor: pointer; }
+        .tab.active { background: #667eea; color: white; }
+        .tab:first-child { border-radius: 8px 0 0 8px; }
+        .tab:last-child { border-radius: 0 8px 8px 0; }
+        .account-item { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+        .account-number { font-weight: bold; color: #333; }
+        .account-status { padding: 5px 10px; border-radius: 15px; font-size: 12px; font-weight: bold; }
+        .status-active { background: #d4edda; color: #155724; }
+        .status-inactive { background: #f8d7da; color: #721c24; }
+        .user-info { background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
         .hidden { display: none; }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-        
-        .stat-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #667eea;
-        }
-        
-        .stat-label {
-            color: #666;
-            margin-top: 0.5rem;
-        }
+        .loading { text-align: center; padding: 20px; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="nav">
-            <div class="logo">🤖 MT5 EA License Manager</div>
-            <div class="nav-buttons">
-                <button id="loginBtn" onclick="showLogin()">Login</button>
-                <button id="registerBtn" onclick="showRegister()">Register</button>
-                <button id="logoutBtn" class="hidden" onclick="logout()">Logout</button>
-            </div>
-        </div>
-    </div>
-
     <div class="container">
-        <!-- Login Form -->
-        <div id="loginForm" class="card">
-            <div class="auth-form">
-                <h2 style="text-align: center; margin-bottom: 2rem; color: #333;">Login to Your Dashboard</h2>
+        <h1 style="text-align: center; color: white; margin-bottom: 30px;">🚀 MT5 License Dashboard</h1>
+        
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="card loading">
+            <h3>Loading...</h3>
+            <p>Checking your session...</p>
+        </div>
+
+        <!-- Login/Register Form -->
+        <div id="authSection" class="card hidden">
+            <div class="tabs">
+                <div class="tab active" onclick="showTab('login')">Login</div>
+                <div class="tab" onclick="showTab('register')">Register</div>
+            </div>
+
+            <!-- Login Form -->
+            <div id="loginForm">
+                <h2>Welcome Back!</h2>
                 <form onsubmit="login(event)">
                     <div class="form-group">
                         <label>Email:</label>
@@ -219,17 +67,12 @@
                         <input type="password" id="loginPassword" required>
                     </div>
                     <button type="submit" class="btn">Login</button>
-                    <button type="button" class="btn btn-secondary" onclick="showRegister()">
-                        Don't have an account? Register
-                    </button>
                 </form>
             </div>
-        </div>
 
-        <!-- Register Form -->
-        <div id="registerForm" class="card hidden">
-            <div class="auth-form">
-                <h2 style="text-align: center; margin-bottom: 2rem; color: #333;">Create Your Account</h2>
+            <!-- Register Form -->
+            <div id="registerForm" class="hidden">
+                <h2>Create Account</h2>
                 <form onsubmit="register(event)">
                     <div class="form-group">
                         <label>Full Name:</label>
@@ -241,145 +84,135 @@
                     </div>
                     <div class="form-group">
                         <label>Password:</label>
-                        <input type="password" id="registerPassword" required minlength="6">
+                        <input type="password" id="registerPassword" required>
                     </div>
-                    <div class="form-group">
-                        <label>Confirm Password:</label>
-                        <input type="password" id="confirmPassword" required>
-                    </div>
-                    <button type="submit" class="btn">Create Account</button>
-                    <button type="button" class="btn btn-secondary" onclick="showLogin()">
-                        Already have an account? Login
-                    </button>
+                    <button type="submit" class="btn">Register</button>
                 </form>
             </div>
         </div>
 
         <!-- Dashboard -->
-        <div id="dashboard" class="hidden">
-            <div class="stats">
-                <div class="stat-card">
-                    <div class="stat-number" id="activeAccounts">0</div>
-                    <div class="stat-label">Active Accounts</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="totalChecks">0</div>
-                    <div class="stat-label">License Checks Today</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number" id="accountLimit">2</div>
-                    <div class="stat-label">Account Limit</div>
+        <div id="dashboardSection" class="hidden">
+            <!-- User Info -->
+            <div class="user-info">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h3 style="margin: 0;">Welcome, <span id="userName"></span>!</h3>
+                        <p style="margin: 5px 0 0 0; opacity: 0.7;">Email: <span id="userEmail"></span></p>
+                    </div>
+                    <button class="btn btn-secondary" onclick="logout()">Logout</button>
                 </div>
             </div>
 
+            <!-- Current Accounts -->
             <div class="card">
-                <h3 style="margin-bottom: 1.5rem; color: #333;">Your MT5 Accounts</h3>
-                <div id="accountsList" class="account-list">
-                    <!-- Accounts will be loaded here -->
+                <h3>Your MT5 Accounts</h3>
+                <div id="accountsList">
+                    <p>Loading your accounts...</p>
                 </div>
-                
-                <div style="margin-top: 2rem;">
-                    <h4 style="margin-bottom: 1rem; color: #333;">Add New MT5 Account</h4>
-                    <form onsubmit="addAccount(event)" style="display: flex; gap: 1rem; align-items: end;">
-                        <div class="form-group" style="flex: 1; margin-bottom: 0;">
-                            <label>MT5 Account Number:</label>
-                            <input type="text" id="newAccountNumber" placeholder="Enter your MT5 account number" required>
-                        </div>
-                        <button type="submit" class="btn" style="width: auto; padding: 0.75rem 1.5rem;">
-                            Add Account
-                        </button>
-                    </form>
-                </div>
+            </div>
+
+            <!-- Add New Account -->
+            <div class="card">
+                <h3>Add New MT5 Account</h3>
+                <form onsubmit="addAccount(event)">
+                    <div class="form-group">
+                        <label>MT5 Account Number:</label>
+                        <input type="number" id="newAccountNumber" required placeholder="Enter your MT5 account number">
+                    </div>
+                    <button type="submit" class="btn">Add Account</button>
+                </form>
             </div>
         </div>
 
-        <div id="alerts"></div>
+        <!-- Alert Messages -->
+        <div id="alertContainer"></div>
     </div>
 
     <script>
-        // Global state
         let currentUser = null;
-        let userAccounts = [];
 
-        // Check if user is logged in on page load
-        window.onload = function() {
-            const token = localStorage.getItem('userToken');
-            if (token) {
-                // Validate token and load dashboard
-                validateToken(token);
+        // Initialize app
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSession();
+        });
+
+        // Check if user has valid session
+        function checkSession() {
+            const savedUser = localStorage.getItem('mt5_user');
+            const savedSession = localStorage.getItem('mt5_session');
+            
+            if (savedUser && savedSession) {
+                try {
+                    currentUser = JSON.parse(savedUser);
+                    showDashboard();
+                } catch (error) {
+                    console.error('Invalid saved session:', error);
+                    clearSession();
+                    showAuth();
+                }
+            } else {
+                showAuth();
             }
-        };
+        }
 
-        function showAlert(message, type = 'success') {
-            const alertsDiv = document.getElementById('alerts');
-            const alert = document.createElement('div');
-            alert.className = `alert alert-${type}`;
-            alert.textContent = message;
-            alertsDiv.appendChild(alert);
+        // Show authentication section
+        function showAuth() {
+            document.getElementById('loadingScreen').classList.add('hidden');
+            document.getElementById('authSection').classList.remove('hidden');
+            document.getElementById('dashboardSection').classList.add('hidden');
+        }
+
+        // Show dashboard section
+        function showDashboard() {
+            document.getElementById('loadingScreen').classList.add('hidden');
+            document.getElementById('authSection').classList.add('hidden');
+            document.getElementById('dashboardSection').classList.remove('hidden');
+            
+            if (currentUser) {
+                document.getElementById('userName').textContent = currentUser.name;
+                document.getElementById('userEmail').textContent = currentUser.email;
+                loadAccounts();
+            }
+        }
+
+        // Clear session data
+        function clearSession() {
+            localStorage.removeItem('mt5_user');
+            localStorage.removeItem('mt5_session');
+            currentUser = null;
+        }
+
+        // Tab switching
+        function showTab(tab) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            if (tab === 'login') {
+                document.getElementById('loginForm').classList.remove('hidden');
+                document.getElementById('registerForm').classList.add('hidden');
+            } else {
+                document.getElementById('loginForm').classList.add('hidden');
+                document.getElementById('registerForm').classList.remove('hidden');
+            }
+        }
+
+        // Show alert message
+        function showAlert(message, type = 'info') {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.textContent = message;
+            
+            alertContainer.innerHTML = '';
+            alertContainer.appendChild(alertDiv);
             
             setTimeout(() => {
-                alert.remove();
+                alertDiv.remove();
             }, 5000);
         }
 
-        function showLogin() {
-            document.getElementById('loginForm').classList.remove('hidden');
-            document.getElementById('registerForm').classList.add('hidden');
-            document.getElementById('dashboard').classList.add('hidden');
-        }
-
-        function showRegister() {
-            document.getElementById('registerForm').classList.remove('hidden');
-            document.getElementById('loginForm').classList.add('hidden');
-            document.getElementById('dashboard').classList.add('hidden');
-        }
-
-        function showDashboard() {
-            document.getElementById('dashboard').classList.remove('hidden');
-            document.getElementById('loginForm').classList.add('hidden');
-            document.getElementById('registerForm').classList.add('hidden');
-            
-            // Update nav buttons
-            document.getElementById('loginBtn').classList.add('hidden');
-            document.getElementById('registerBtn').classList.add('hidden');
-            document.getElementById('logoutBtn').classList.remove('hidden');
-            
-            loadUserAccounts();
-        }
-
-        async function register(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('registerName').value;
-            const email = document.getElementById('registerEmail').value;
-            const password = document.getElementById('registerPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                showAlert('Passwords do not match!', 'error');
-                return;
-            }
-            
-            try {
-                const response = await fetch('/.netlify/functions/auth', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'register', name, email, password })
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    showAlert('Account created successfully! Please login.');
-                    showLogin();
-                } else {
-                    showAlert(result.message || 'Registration failed', 'error');
-                }
-            } catch (error) {
-                showAlert('Registration failed. Please try again.', 'error');
-            }
-        }
-
+        // Login function
         async function login(event) {
             event.preventDefault();
             
@@ -396,166 +229,168 @@
                 const result = await response.json();
                 
                 if (result.success) {
-                    localStorage.setItem('userToken', result.token);
                     currentUser = result.user;
-                    showAlert('Login successful!');
+                    localStorage.setItem('mt5_user', JSON.stringify(currentUser));
+                    localStorage.setItem('mt5_session', 'active');
+                    showAlert('Login successful!', 'success');
                     showDashboard();
                 } else {
                     showAlert(result.message || 'Login failed', 'error');
                 }
             } catch (error) {
-                showAlert('Login failed. Please try again.', 'error');
+                showAlert('Connection error. Please try again.', 'error');
+                console.error('Login error:', error);
             }
         }
 
-        async function validateToken(token) {
+        // Register function
+        async function register(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            
             try {
                 const response = await fetch('/.netlify/functions/auth', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'validate', token })
+                    body: JSON.stringify({ action: 'register', name, email, password })
                 });
                 
                 const result = await response.json();
                 
                 if (result.success) {
-                    currentUser = result.user;
-                    showDashboard();
+                    showAlert('Registration successful! Please login.', 'success');
+                    showTab('login');
+                    document.getElementById('loginEmail').value = email;
                 } else {
-                    localStorage.removeItem('userToken');
-                    showLogin();
+                    showAlert(result.message || 'Registration failed', 'error');
                 }
             } catch (error) {
-                localStorage.removeItem('userToken');
-                showLogin();
+                showAlert('Connection error. Please try again.', 'error');
+                console.error('Register error:', error);
             }
         }
 
-        async function loadUserAccounts() {
-            const token = localStorage.getItem('userToken');
+        // Logout function
+        function logout() {
+            clearSession();
+            showAlert('Logged out successfully', 'info');
+            showAuth();
+        }
+
+        // Load user accounts
+        async function loadAccounts() {
+            if (!currentUser) return;
             
             try {
                 const response = await fetch('/.netlify/functions/accounts', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'list', token })
+                    body: JSON.stringify({ action: 'getAccounts', userId: currentUser.id })
                 });
                 
                 const result = await response.json();
                 
                 if (result.success) {
-                    userAccounts = result.accounts;
-                    updateAccountsDisplay();
-                    updateStats();
+                    displayAccounts(result.accounts || []);
+                } else {
+                    showAlert('Failed to load accounts', 'error');
                 }
             } catch (error) {
                 showAlert('Failed to load accounts', 'error');
+                console.error('Load accounts error:', error);
             }
         }
 
-        function updateAccountsDisplay() {
+        // Display accounts
+        function displayAccounts(accounts) {
             const accountsList = document.getElementById('accountsList');
             
-            if (userAccounts.length === 0) {
-                accountsList.innerHTML = `
-                    <div style="text-align: center; padding: 2rem; color: #666;">
-                        <h4>No MT5 accounts added yet</h4>
-                        <p>Add your first MT5 account number below to get started.</p>
-                    </div>
-                `;
+            if (accounts.length === 0) {
+                accountsList.innerHTML = '<p style="color: #666; text-align: center;">No MT5 accounts added yet.</p>';
                 return;
             }
             
-            accountsList.innerHTML = userAccounts.map(account => `
+            accountsList.innerHTML = accounts.map(account => `
                 <div class="account-item">
-                    <div class="account-info">
-                        <h4>Account: ${account.accountNumber}</h4>
-                        <p>Added: ${new Date(account.dateAdded).toLocaleDateString()}</p>
+                    <div>
+                        <div class="account-number">#${account.accountNumber}</div>
+                        <small>Added: ${new Date(account.addedAt).toLocaleDateString()}</small>
                     </div>
-                    <div style="display: flex; align-items: center; gap: 1rem;">
-                        <span class="status-badge status-active">Active</span>
-                        <button class="btn btn-danger" onclick="removeAccount('${account.accountNumber}')">
-                            Remove
-                        </button>
+                    <div>
+                        <span class="account-status status-${account.status}">${account.status.toUpperCase()}</span>
+                        <button class="btn btn-danger" style="margin-left: 10px; padding: 5px 10px; font-size: 12px;" onclick="removeAccount('${account.accountNumber}')">Remove</button>
                     </div>
                 </div>
             `).join('');
         }
 
-        function updateStats() {
-            document.getElementById('activeAccounts').textContent = userAccounts.length;
-            // You can add more stats here
-        }
-
+        // Add new account
         async function addAccount(event) {
             event.preventDefault();
             
-            const accountNumber = document.getElementById('newAccountNumber').value;
-            const token = localStorage.getItem('userToken');
-            
-            if (userAccounts.length >= 2) {
-                showAlert('You can only have 2 MT5 accounts maximum', 'error');
+            if (!currentUser) {
+                showAlert('Please login first', 'error');
                 return;
             }
+            
+            const accountNumber = document.getElementById('newAccountNumber').value;
             
             try {
                 const response = await fetch('/.netlify/functions/accounts', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'add', token, accountNumber })
+                    body: JSON.stringify({ 
+                        action: 'addAccount', 
+                        userId: currentUser.id, 
+                        accountNumber 
+                    })
                 });
                 
                 const result = await response.json();
                 
                 if (result.success) {
-                    showAlert('MT5 account added successfully!');
+                    showAlert('Account added successfully!', 'success');
                     document.getElementById('newAccountNumber').value = '';
-                    loadUserAccounts();
+                    loadAccounts();
                 } else {
                     showAlert(result.message || 'Failed to add account', 'error');
                 }
             } catch (error) {
                 showAlert('Failed to add account', 'error');
+                console.error('Add account error:', error);
             }
         }
 
+        // Remove account
         async function removeAccount(accountNumber) {
             if (!confirm('Are you sure you want to remove this account?')) return;
-            
-            const token = localStorage.getItem('userToken');
             
             try {
                 const response = await fetch('/.netlify/functions/accounts', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'remove', token, accountNumber })
+                    body: JSON.stringify({ 
+                        action: 'removeAccount', 
+                        userId: currentUser.id, 
+                        accountNumber 
+                    })
                 });
                 
                 const result = await response.json();
                 
                 if (result.success) {
-                    showAlert('Account removed successfully');
-                    loadUserAccounts();
+                    showAlert('Account removed successfully!', 'success');
+                    loadAccounts();
                 } else {
                     showAlert(result.message || 'Failed to remove account', 'error');
                 }
             } catch (error) {
                 showAlert('Failed to remove account', 'error');
+                console.error('Remove account error:', error);
             }
-        }
-
-        function logout() {
-            localStorage.removeItem('userToken');
-            currentUser = null;
-            userAccounts = [];
-            
-            // Reset nav buttons
-            document.getElementById('loginBtn').classList.remove('hidden');
-            document.getElementById('registerBtn').classList.remove('hidden');
-            document.getElementById('logoutBtn').classList.add('hidden');
-            
-            showLogin();
-            showAlert('Logged out successfully');
         }
     </script>
 </body>
