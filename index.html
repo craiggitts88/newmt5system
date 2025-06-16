@@ -280,29 +280,40 @@
             showAuth();
         }
 
-        // Load user accounts
-        async function loadAccounts() {
-            if (!currentUser) return;
-            
-            try {
-                const response = await fetch('/.netlify/functions/accounts', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ action: 'getAccounts', userId: currentUser.id })
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    displayAccounts(result.accounts || []);
-                } else {
-                    showAlert('Failed to load accounts', 'error');
-                }
-            } catch (error) {
-                showAlert('Failed to load accounts', 'error');
-                console.error('Load accounts error:', error);
+  // Load user accounts
+async function loadAccounts() {
+    if (!currentUser) {
+        showAlert('Please login first', 'error');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/.netlify/functions/accounts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                action: 'getAccounts', 
+                userId: currentUser.id 
+            })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            displayAccounts(result.accounts || []);
+        } else {
+            console.error('Load accounts error:', result);
+            displayAccounts([]); // Show empty state instead of error
+            if (result.message !== 'User not found') {
+                showAlert('Failed to load accounts: ' + result.message, 'error');
             }
         }
+    } catch (error) {
+        console.error('Load accounts network error:', error);
+        displayAccounts([]); // Show empty state
+        showAlert('Network error loading accounts', 'error');
+    }
+}
 
         // Display accounts
         function displayAccounts(accounts) {
